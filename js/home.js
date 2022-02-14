@@ -2,7 +2,8 @@ window.userWalletAccount = null
 const button = document.querySelector('#loginButton')
 const address = document.querySelector('#walletAddress')
 const balance = document.querySelector('#balance')
-const transactionUrl = document.querySelector('#url')
+const url_1 = document.querySelector('#url_1')
+const url_2 = document.querySelector('#url_2')
 const currentNetwork = document.querySelector('#network')
 const network = {
 	'1' : 'Mainnet',
@@ -13,20 +14,24 @@ const network = {
 }
 
 async function Login() {
-
 	const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
 	.catch((e) => { console.error(e.message) })
 	if (!accounts) { return }
 
 	window.userWalletAccount = accounts[0]
 	address.innerText = 'Your account address : ' + window.userWalletAccount
-	
-	window.ethereum.request({method: 'eth_getBalance', params: [window.userWalletAccount, 'latest']})
-	.then(bal => { balance.innerText = 'Your account balance : ' + Web3.utils.fromWei(Web3.utils.hexToNumberString(bal),'ether') })
-	.catch(error => { console.error(error.message) })
 
+	window.ethereum.request({method: 'eth_getBalance', params: [window.userWalletAccount, 'latest']})
+	.then((bal) => { 
+		balance.innerText = 'Your account balance : ' + Web3.utils.fromWei(Web3.utils.hexToNumberString(bal),'ether') 
+	})
+	.catch((error) => { 
+		console.error(error.message) 
+	})
+	
 	currentNetwork.innerText = 'Your current network : ' + network[window.ethereum.networkVersion]	
-	transactionUrl.style.display = 'block'
+	url_1.style.display = 'block'
+	url_2.style.display = 'block'
 	console.log(window.ethereum.selectedAddress)
 
 }

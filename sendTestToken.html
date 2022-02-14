@@ -12,10 +12,11 @@
 			Send
 			<input placeholder="address" id="sentAddress" oninput="restrictAddress()"></input>
 			<input placeholder="amount" id="sentAmount" oninput="restrictAmount()"></input>
-			ethers !
+			test tokens !
 			<span id="accountAlert" style="display: none;color: crimson">Need to be a valid address</span>
 			<span id="amountAlert" style="display: none;color: crimson">    Need to be a valid amount.</span>
 			</br>
+			<span id="balance" style="display: none"></span>
 			</br>
 			
 		</p>
@@ -26,7 +27,7 @@
 	</br>
 	<a id="transactionMessage"></a>
 	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-	<script type="text/javascript" src="js/transaction.js"></script>
+	<script type="text/javascript" src="js/sendTestToken.js"></script>
 
 </body>
 

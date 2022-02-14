@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title> Hi!! </title>
+</head>
+
+<body>
+
+	<p id="errorMessage"></p>
+	
+	<form id="transactionForm" style="display: block">
+		<p>
+			Send
+			<input placeholder="address" id="sentAddress" oninput="restrictAddress()"></input>
+			<input placeholder="amount" id="sentAmount" oninput="restrictAmount()"></input>
+			ethers !
+			<span id="accountAlert" style="display: none;color: crimson">Need to be a valid address</span>
+			<span id="amountAlert" style="display: none;color: crimson">    Need to be a valid amount.</span>
+			</br>
+			<span id="balance" style="display: none"></span>
+			</br>
+			
+		</p>
+	</form>
+	</br>
+	<button id="sendButton" onclick="sendTransaction()" disabled>Send!</button>
+	</br>
+	</br>
+	<a id="transactionMessage"></a>
+	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+	<script type="text/javascript" src="js/sendEther.js"></script>
+
+</body>
+
+<html>
