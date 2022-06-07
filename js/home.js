@@ -28,7 +28,7 @@ async function Login() {
 	.catch((error) => { 
 		console.error(error.message) 
 	})
-	
+	console.log('check')
 	currentNetwork.innerText = 'Your current network : ' + network[window.ethereum.networkVersion]	
 	url_1.style.display = 'block'
 	url_2.style.display = 'block'
